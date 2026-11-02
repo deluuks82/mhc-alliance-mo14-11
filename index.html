@@ -185,7 +185,7 @@ body.match .dug-sec.volgorde{display:flex;flex:1 1 0;min-height:0;overflow:hidde
 .stat{display:none;font-size:9.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.18);padding:1px 6px;border-radius:20px;margin-top:3px;white-space:nowrap;line-height:1.35;font-variant-numeric:tabular-nums}
 .sp .stat{display:none!important}
 body.match .stat{display:block}
-.so-badge{display:none;position:absolute;bottom:-3px;left:-7px;width:19px;height:19px;border-radius:50%;background:#111;color:#fff;border:1.5px solid #FDE047;font-size:9.5px;font-weight:900;align-items:center;justify-content:center;line-height:1;pointer-events:none}
+.so-badge{display:none!important;display:none;position:absolute;bottom:-3px;left:-7px;width:19px;height:19px;border-radius:50%;background:#111;color:#fff;border:1.5px solid #FDE047;font-size:9.5px;font-weight:900;align-items:center;justify-content:center;line-height:1;pointer-events:none}
 body.match .sp .so-badge{display:flex}
 .bt-badge{display:none;margin-right:-5px;padding:1px 6px;border-radius:20px;font-weight:900;font-variant-numeric:tabular-nums;font-size:9.5px}
 body.match .sp .bt-badge{display:inline-block}
@@ -328,12 +328,6 @@ tbody tr:last-child td:first-child{background:var(--bg)}
     </div>
     <div class="prog"><i id="prog"></i></div>
     <div class="menu" id="menu"><button type="button" class="danger" id="btn-reset-match"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></svg>Reset wedstrijd</button></div>
-    <div class="shoot">
-      <div class="shoot-info"><small>Shoot-out</small><b id="so-name">-</b><em id="so-meta"></em></div>
-      <button type="button" class="btn-s icon" id="btn-so-random" aria-label="Volgorde opnieuw loten"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path></svg></button>
-      <button type="button" class="btn-s skip" id="btn-so-skip">Sla over</button>
-      <button type="button" class="btn-s go" id="btn-so-done">✓ Genomen</button>
-    </div>
   </div>
   <div class="bench-legend"><span>Bank · doel 10 min</span><span><i style="background:rgba(255,255,255,.35)"></i>0</span><span><i style="background:#16A34A"></i>&lt;8</span><span><i style="background:#FACC15"></i>8-12</span><span><i style="background:#DC2626"></i>&gt;12</span></div>
   <div class="op-main">
@@ -425,7 +419,7 @@ tbody tr:last-child td:first-child{background:var(--bg)}
       <div class="fr"><code>A</code> Speelsters (vanaf rij 2) · <code>B</code> Positievoorkeur · <code>C</code> Coaches</div>
       <div class="fr">Meerdere voorkeuren scheiden met <b>/</b>, bijvoorbeeld <b>Midden / Voor</b>.</div>
     </div>
-    <div class="version">Versie 3.6 (MO14 cloud v42) · 2 november 2026</div>
+    <div class="version">Versie 3.7 (MO14 cloud v43) · 2 november 2026</div>
   </div>
 </section>
 
@@ -689,7 +683,7 @@ function nextHalf(){
   save(K_CLOCK,c);updateHud();
 }
 function resetMatch(){
-  if(!confirm("Klok, wisseltijden en shoot-outs resetten en terug naar de beginopstelling?"))return;
+  if(!confirm("Klok en wisseltijden resetten en terug naar de beginopstelling?"))return;
   var start=load(K_START,null);if(start)positions=clone(start);
   save(K_CLOCK,null);save(K_SHOOT,null);save(K_HIST,[]);save(K_ORDER,null);localStorage.removeItem(K_START);selOut=null;
   persistPositions();render();updateHud();toast("Gereset naar beginopstelling");
@@ -765,10 +759,6 @@ function updateHud(){
   $("half-label").textContent=(c.half===2?"2e helft":"1e helft")+(left>0?" · nog":" · klaar");$("prog").style.width=Math.min(100,elapsed(c)/HALF_MS*100)+"%";
   var b=$("btn-clock"),bs=c.running?"run":"stop";if(b.dataset.st!==bs){b.dataset.st=bs;b.innerHTML=c.running?PAUSE_SVG:PLAY_SVG;}b.classList.toggle("running",c.running);b.setAttribute("aria-label",c.running?"Pauze":(c.started?"Hervat":"Start"));
   $("half-txt").textContent=c.half===1?"Rust":"Einde";$("btn-half").disabled=c.half===2&&left<=0;
-  var st=shootState(),o=shootOrder(st),n=o[0];
-  $("so-name").textContent=n||"-";
-  if(n){var min=st.handled[n]||0,klaar=o.filter(function(x){return(st.handled[x]||0)>min;}).length;$("so-meta").textContent="Ronde "+(min+1)+" · "+klaar+"/"+o.length+" geweest · "+(st.count[n]||0)+"× genomen";}
-  else $("so-meta").textContent="Geen veldspeelsters";
   decorateMatch();
 }
 // Wisselvolgorde: onderaan de startwissels, elke speelster die eruit gaat komt erbovenop
@@ -1102,8 +1092,6 @@ function init(){
   $("btn-undo").addEventListener("click",undo);$("btn-reset-match").addEventListener("click",function(){closeMenu();resetMatch();});
   $("btn-more").addEventListener("click",function(e){e.stopPropagation();var o=!$("menu").classList.contains("open");$("menu").classList.toggle("open",o);$("btn-more").setAttribute("aria-expanded",o?"true":"false");});
   document.addEventListener("click",function(e){if(!e.target.closest("#menu"))closeMenu();});
-  $("btn-so-done").addEventListener("click",function(){shootAction("done");});$("btn-so-skip").addEventListener("click",function(){shootAction("skip");});
-  $("btn-so-random").addEventListener("click",shootRandom);
   $("btn-download").addEventListener("click",downloadHTML);$("btn-poster").addEventListener("click",poster);
   $("btn-photos").addEventListener("click",function(){if(!confirm("Alle foto's wissen?"))return;photos={};save(K_PHOTO,photos);toast("Foto's gewist");});
   var rt;function relayout(){clearTimeout(rt);rt=setTimeout(function(){setAppHeight();orderSig="";render();},120);}
