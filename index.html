@@ -214,23 +214,7 @@ body.match .sp,body.match .bank{cursor:pointer;touch-action:manipulation}
 body.match .legend{display:none}
 .toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#fff;color:#111;border-radius:20px;padding:9px 16px;font-size:12.5px;font-weight:800;opacity:0;pointer-events:none;transition:opacity .15s;z-index:10000;box-shadow:0 6px 18px rgba(0,0,0,.3);white-space:nowrap}
 .toast.show{opacity:1}
-/* ===== Regels ===== */
-.page-head{background:#111;color:#fff;padding:calc(18px + env(safe-area-inset-top)) 18px 18px;border-radius:0 0 24px 24px;margin-bottom:14px;position:relative;overflow:hidden}
-.page-head:before{content:"";position:absolute;right:-70px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(0,120,86,.5),rgba(0,120,86,0) 70%)}
-.page-head small{position:relative;display:block;font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--green-text);text-transform:uppercase}
-.page-head b{position:relative;display:block;font-size:24px;font-weight:900;letter-spacing:-.02em;margin-top:2px}
-.page-head span{position:relative;display:block;font-size:12.5px;color:rgba(255,255,255,.6);font-weight:600;margin-top:3px}
-.spelregels-page{padding:0 14px}
-.spelregels-header{display:none}
-.sr-intro{margin-bottom:12px}.sr-intro-pills{display:flex;flex-wrap:wrap;gap:6px}
-.sr-pill{background:var(--green-light);color:var(--green-dark);border-radius:20px;padding:5px 11px;font-size:11.5px;font-weight:800}
-.sr-rules{display:flex;flex-direction:column;background:#fff;border-radius:20px;overflow:hidden;margin-bottom:14px}
-.sr-rule{padding:13px 16px;border-bottom:1px solid var(--line)}
-.sr-rule:last-child{border:0}
-.sr-rule-title{font-size:13.5px;font-weight:800;margin-bottom:3px}
-.sr-rule-body,.sr-footer-text{font-size:12.5px;color:#444;line-height:1.55}
-.sr-footer{background:#fff;border-radius:20px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
-.sr-footer-item{display:flex;gap:10px;align-items:flex-start}
+
 /* ===== Team ===== */
 .team-page{padding:0 14px}
 .blk-title{font-size:13px;font-weight:900;padding:6px 6px 8px}
@@ -361,40 +345,7 @@ tbody tr:last-child td:first-child{background:var(--bg)}
     <span><i style="border-color:#FDE047"></i>Keeper</span><span><i style="border-color:#60A5FA"></i>Achter</span><span><i style="border-color:#C4B5FD"></i>Midden</span><span><i style="border-color:#FB7185"></i>Voor</span><span class="tip">Sleep om te verplaatsen · tik voor foto</span>
   </div>
 </section>
-
-<div class="page scroll-page" id="page-spelregels">
-  <div class="page-head"><small>KNHB · MO14</small><b>Spelregels</b><span>11 tegen 11 · MO14</span></div>
-  <div class="spelregels-page">
-    <div class="spelregels-header"><div class="sr-title">📚 Spelregels O10</div><div class="sr-sub">KNHB · 8 tegen 8 · Onder 10 jaar</div></div>
-    <div class="sr-intro"><div class="sr-intro-pills">
-      <span class="sr-pill">8 vs 8 incl. keeper</span><span class="sr-pill">2x30 min · 5 min rust</span>
-      <span class="sr-pill">55x43 m veld</span><span class="sr-pill">Geen ranglijst</span>
-    </div></div>
-    <div class="sr-rules">
-      <div class="sr-rule"><div class="sr-rule-title">Beginslag</div><div class="sr-rule-body">Vanaf het midden op de middenlijn. Self-pass, push of schuifslag. Beide teams op eigen helft. Tegenpartij houdt 5 meter afstand.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Doelpunt</div><div class="sr-rule-body">Aanvaller raakt bal in cirkel aan, op of onder plankhoogte volledig over achterlijn. Bal mag niet hoger dan plank- of kniehoogte tijdens schotbaan.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Gevaarlijk spel</div><div class="sr-rule-body">Bal niet hoger dan kniehoogte. Liften mag, mits niet gevaarlijk. Speelbegeleider beoordeelt.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Spelhervattingen</div><div class="sr-rule-body">Alle spelers 5 meter afstand. Bal binnen 5 meter van cirkel genomen? Eerst 5 meter rollen voor de cirkel in.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Inslag</div><div class="sr-rule-body">Bal over de zijlijn: genomen op die plek. Iedereen 5 meter afstand.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Vrije slag</div><div class="sr-rule-body">Bij overtreding op die plek. Aanvallende overtreding in doelgebied: verdediger neemt bal ter hoogte van kop cirkel. Verdedigende overtreding binnen 5 meter van doel: vrije slag voor aanvaller, bal eerst 5 meter rollen.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Shoot-out</div><div class="sr-rule-body">Bij verdedigende overtreding in cirkel. Geen tijdslimiet. Alle spelers behalve keeper en schutter in aanvallende cirkel. Schot vanaf middenlijn na fluitsignaal.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Strafbal</div><div class="sr-rule-body">Doelpunt voorkomen door overtreding verdediger. Tijd wordt stilgezet.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Uitslaan</div><div class="sr-rule-body">Bal over achterlijn: hervat recht tegenover die plek ter hoogte van kop cirkel.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Lange corner</div><div class="sr-rule-body">Bal onopzettelijk via verdediger over achterlijn: hervat ca. 5 meter achter 15 meter lijn. Bal eerst 5 meter rollen. Beide teams 5 meter afstand.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Shoot &amp; bolle kant</div><div class="sr-rule-body">Niet met voet of bolle kant spelen.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Time-out</div><div class="sr-rule-body">Door teambegeleider of speelbegeleider aan te vragen voor extra aanwijzingen.</div></div>
-      <div class="sr-rule"><div class="sr-rule-title">Bully</div><div class="sr-rule-body">Bij onderbreking door blessure zonder overtreding, om spel te hervatten.</div></div>
-    </div>
-    <div class="sr-footer">
-      <div class="sr-footer-item"><div class="sr-footer-icon">🏏</div><div class="sr-footer-text"><b>Coach:</b> Enthousiasmeren en veilige speelomgeving creëren.</div></div>
-      <div class="sr-footer-item"><div class="sr-footer-icon">👏</div><div class="sr-footer-text"><b>Ouders:</b> Positief aanmoedigen.</div></div>
-      <div class="sr-footer-item"><div class="sr-footer-icon">🔗</div><div class="sr-footer-text"><b>Meer info:</b> www.knhb.nl/jongstejeugd</div></div>
-    </div>
-  </div>
-</div>
-
-
-<section class="page scroll-page" id="page-team">
+  <section class="page scroll-page" id="page-team">
   <div class="page-head"><small>MHC Alliance</small><b>Team</b><span>Taken, speelsters en instellingen</span></div>
   <div class="team-page">
     <div class="blk-title">Taakoverzicht<span>Wie heeft hoe vaak gefloten, gekeept, gereden en fruit meegenomen?</span></div>
@@ -428,7 +379,6 @@ tbody tr:last-child td:first-child{background:var(--bg)}
   <button type="button" class="tab active" data-tab="overview"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="3"></rect><path d="M3 9.5h18M8 2.5v4M16 2.5v4"></path></svg><span>Programma</span></button>
   <button type="button" class="tab" data-tab="opstelling"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M12 5v14"></path><circle cx="12" cy="12" r="2.5"></circle></svg><span>Opstelling</span></button>
   <button type="button" class="tab" data-tab="wedstrijd"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"></circle><path d="M12 9.5v4l2.5 2M9.5 2.5h5"></path></svg><span>Wedstrijd</span></button>
-  <button type="button" class="tab" data-tab="spelregels"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"></path><path d="M4 20.5V5.5M20 18v3H6.5"></path></svg><span>Regels</span></button>
   <button type="button" class="tab" data-tab="team"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M17 14a5 5 0 0 1 4.5 5"></path></svg><span>Team</span></button>
 </nav>
 </div>
