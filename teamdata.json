@@ -1,0 +1,76 @@
+{
+  "teamNaam": "MO14 - 11",
+  "positions": {
+    "Speler 1": {
+      "zone": "veld",
+      "sx": 80,
+      "sy": 215
+    },
+    "Speler 2": {
+      "zone": "veld",
+      "sx": 155,
+      "sy": 105
+    },
+    "Speler 3": {
+      "zone": "veld",
+      "sx": 155,
+      "sy": 215
+    },
+    "Speler 4": {
+      "zone": "veld",
+      "sx": 155,
+      "sy": 325
+    },
+    "Speler 5": {
+      "zone": "veld",
+      "sx": 240,
+      "sy": 80
+    },
+    "Speler 6": {
+      "zone": "veld",
+      "sx": 240,
+      "sy": 170
+    },
+    "Speler 7": {
+      "zone": "veld",
+      "sx": 240,
+      "sy": 260
+    },
+    "Speler 8": {
+      "zone": "veld",
+      "sx": 240,
+      "sy": 350
+    },
+    "Speler 9": {
+      "zone": "veld",
+      "sx": 340,
+      "sy": 130
+    },
+    "Speler 10": {
+      "zone": "veld",
+      "sx": 340,
+      "sy": 215
+    },
+    "Speler 11": {
+      "zone": "veld",
+      "sx": 340,
+      "sy": 300
+    },
+    "Speler 12": {
+      "zone": "wissel"
+    },
+    "Speler 13": {
+      "zone": "wissel"
+    },
+    "Speler 14": {
+      "zone": "wissel"
+    },
+    "Speler 15": {
+      "zone": "wissel"
+    },
+    "Speler 16": {
+      "zone": "wissel"
+    }
+  },
+  "updatedAt": null
+}
