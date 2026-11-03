@@ -217,6 +217,12 @@ body.match .legend{display:none}
 
 /* ===== Team ===== */
 .team-page{padding:0 14px}
+  .page-head{background:#111;color:#fff;padding:calc(18px + env(safe-area-inset-top)) 20px 22px;margin-bottom:16px;position:relative;overflow:hidden}
+  .page-head:before{content:"";position:absolute;right:-70px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(0,120,86,.60),rgba(0,120,86,0) 70%);pointer-events:none}
+  .page-head small,.page-head b,.page-head span{display:block;position:relative}
+  .page-head small{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--green-text);text-transform:uppercase}
+  .page-head b{font-size:25px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-top:2px}
+  .page-head span{font-size:12px;color:rgba(255,255,255,.55);margin-top:3px;font-weight:600}
 .blk-title{font-size:13px;font-weight:900;padding:6px 6px 8px}
 .blk-title span{display:block;font-size:12px;color:var(--mut);font-weight:600;margin-top:1px}
 .tbl-wrap{background:#fff;border-radius:20px;overflow-x:auto;margin-bottom:20px}
@@ -306,14 +312,14 @@ tbody tr:last-child td:first-child{background:var(--bg)}
     <div class="hrow">
       <div class="clock"><small id="half-label">1e kwart · nog</small><strong id="clock">17:30</strong></div>
       <button type="button" class="sm" id="btn-undo" aria-label="Laatste actie terugzetten"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14L4 9l5-5"></path><path d="M4 9h10a6 6 0 0 1 0 12h-3"></path></svg><span>Terug</span></button>
-      <button type="button" class="sm" id="btn-half"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4v16M16 4v16"></path></svg><span id="half-txt">Rust</span></button>
+      <button type="button" class="sm" id="btn-half"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4v16M16 4v16"></path></svg><span id="half-txt">Volgende</span></button>
       <button type="button" class="sm" id="btn-more" aria-label="Meer opties" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.2"></circle><circle cx="12" cy="12" r="1.2"></circle><circle cx="19" cy="12" r="1.2"></circle></svg><span>Meer</span></button>
       <button type="button" class="play" id="btn-clock" aria-label="Start"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5z"></path></svg></button>
     </div>
     <div class="prog"><i id="prog"></i></div>
     <div class="menu" id="menu"><button type="button" class="danger" id="btn-reset-match"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></svg>Reset wedstrijd</button></div>
   </div>
-  <div class="bench-legend"><span>Bank · doel 10 min</span><span><i style="background:rgba(255,255,255,.35)"></i>0</span><span><i style="background:#16A34A"></i>&lt;8</span><span><i style="background:#FACC15"></i>8-12</span><span><i style="background:#DC2626"></i>&gt;12</span></div>
+  <div class="bench-legend"><span>Bank · doel 20 min</span><span><i style="background:rgba(255,255,255,.35)"></i>0</span><span><i style="background:#16A34A"></i>&lt;18</span><span><i style="background:#FACC15"></i>18-22</span><span><i style="background:#DC2626"></i>&gt;22</span></div>
   <div class="op-main">
     <div class="dugout" id="dugout">
       <div class="dug-sec wissel" data-zone="wissel"><div class="dug-label">Wissel</div><div class="slots" id="slots-wissel"></div></div>
@@ -348,7 +354,7 @@ tbody tr:last-child td:first-child{background:var(--bg)}
   <section class="page scroll-page" id="page-team">
   <div class="page-head"><small>MHC Alliance</small><b>Team</b><span>Taken, speelsters en instellingen</span></div>
   <div class="team-page">
-    <div class="blk-title">Taakoverzicht<span>Wie heeft hoe vaak gefloten, gekeept, gereden en fruit meegenomen?</span></div>
+    <div class="blk-title">Taakoverzicht<span>Wie heeft hoe vaak gefloten, gekeept en gereden?</span></div>
     <div class="tbl-wrap"><table id="taken"></table></div>
     <div class="blk-title">Team &amp; voorkeurspositie</div>
     <div class="card-box"><div id="roster"></div></div>
@@ -370,7 +376,7 @@ tbody tr:last-child td:first-child{background:var(--bg)}
       <div class="fr"><code>A</code> Speelsters (vanaf rij 2) · <code>B</code> Positievoorkeur · <code>C</code> Coaches</div>
       <div class="fr">Meerdere voorkeuren scheiden met <b>/</b>, bijvoorbeeld <b>Midden / Voor</b>.</div>
     </div>
-    <div class="version">Versie 3.7 (MO14 cloud v43) · 2 november 2026</div>
+    <div class="version">Versie 3.8 (MO14 cloud v44) · 3 november 2026</div>
   </div>
 </section>
 
@@ -597,8 +603,8 @@ function splitNames(s){return String(s||"").split(/[,;&/]|\sen\s/).map(function(
 
 // ================== WEDSTRIJDMODUS: KLOK ==================
 var HALF_MS=17.5*60*1000;
-// Banktijd-kleuren: doel 10 min per speelster, marge -2/+2 min
-var BANK_DOEL=10,BANK_MIN=8,BANK_MAX=12;
+// Banktijd-kleuren: doel 20 min per speelster, marge -2/+2 min
+var BANK_DOEL=20,BANK_MIN=18,BANK_MAX=22;
 function bankKleur(ms){var m=ms/60000;if(ms<1000)return"nul";if(m<BANK_MIN)return"groen";if(m<=BANK_MAX)return"geel";return"rood";}
 function clockState(){var c=load(K_CLOCK,null);if(!c)c={half:1,elapsed:0,running:false,runAt:null,started:false,bench:{}};c.bench=c.bench||{};return c;}
 function elapsed(c){return Math.min(HALF_MS,c.elapsed+(c.running&&c.runAt?Date.now()-c.runAt:0));}
@@ -617,7 +623,7 @@ function toggleClock(){
   var c=clockState(),now=Date.now();
   if(c.running){c.elapsed=elapsed(c);c.running=false;c.runAt=null;syncBench(c,now);save(K_CLOCK,c);toast("Gepauzeerd");}
   else{
-    if(elapsed(c)>=HALF_MS){toast(c.half===1?"Helft voorbij · tik Rust":"Wedstrijd is afgelopen");return;}
+    if(elapsed(c)>=HALF_MS){toast(c.half<4?"Kwart voorbij · tik Volgende":"Wedstrijd is afgelopen");return;}
     if(!c.started){c.started=true;save(K_START,positions);save(K_SHOOT,null);save(K_ORDER,newOrder());}
     c.running=true;c.runAt=now;syncBench(c,now);save(K_CLOCK,c);toast(c.elapsed?"Hervat":"Wedstrijd gestart");
   }
@@ -625,11 +631,11 @@ function toggleClock(){
 }
 function nextHalf(){
   var c=clockState(),now=Date.now();
-  if(c.half===2&&elapsed(c)>=HALF_MS){toast("Wedstrijd is al afgelopen");return;}
-  var msg=c.half===1?"Naar de rust en de 2e helft?":"Wedstrijd beëindigen?";
+  if(c.half===4&&elapsed(c)>=HALF_MS){toast("Wedstrijd is al afgelopen");return;}
+  var msg=c.half<4?("Naar het "+(c.half+1)+"e kwart?"):"Wedstrijd beëindigen?";
   if(elapsed(c)<HALF_MS-1000&&!confirm(msg))return;
   if(c.running){c.elapsed=elapsed(c);c.running=false;c.runAt=null;syncBench(c,now);}
-  if(c.half===1){c.half=2;c.elapsed=0;toast("2e helft klaar · tik Start");}else{c.elapsed=HALF_MS;toast("Wedstrijd afgelopen");}
+  if(c.half<4){c.half+=1;c.elapsed=0;toast(c.half+"e kwart klaar · tik Start");}else{c.elapsed=HALF_MS;toast("Wedstrijd afgelopen");}
   save(K_CLOCK,c);updateHud();
 }
 function resetMatch(){
@@ -704,11 +710,11 @@ function decorateMatch(){
 function updateHud(){
   if(mode!=="wedstrijd")return;
   var c=clockState(),left=HALF_MS-elapsed(c);
-  if(c.running&&left<=0){c.elapsed=HALF_MS;c.running=false;c.runAt=null;syncBench(c,Date.now());save(K_CLOCK,c);toast(c.half===1?"Einde 1e helft":"Einde wedstrijd");if(navigator.vibrate)navigator.vibrate(400);}
+  if(c.running&&left<=0){c.elapsed=HALF_MS;c.running=false;c.runAt=null;syncBench(c,Date.now());save(K_CLOCK,c);toast(c.half<4?("Einde "+c.half+"e kwart"):"Einde wedstrijd");if(navigator.vibrate)navigator.vibrate(400);}
   $("clock").textContent=fmtLeft(left);$("clock").classList.toggle("warn",left<=5*60*1000);
-  $("half-label").textContent=(c.half===2?"2e helft":"1e helft")+(left>0?" · nog":" · klaar");$("prog").style.width=Math.min(100,elapsed(c)/HALF_MS*100)+"%";
+  $("half-label").textContent=c.half+"e kwart"+(left>0?" · nog":" · klaar");$("prog").style.width=Math.min(100,elapsed(c)/HALF_MS*100)+"%";
   var b=$("btn-clock"),bs=c.running?"run":"stop";if(b.dataset.st!==bs){b.dataset.st=bs;b.innerHTML=c.running?PAUSE_SVG:PLAY_SVG;}b.classList.toggle("running",c.running);b.setAttribute("aria-label",c.running?"Pauze":(c.started?"Hervat":"Start"));
-  $("half-txt").textContent=c.half===1?"Rust":"Einde";$("btn-half").disabled=c.half===2&&left<=0;
+  $("half-txt").textContent=c.half<4?"Volgende":"Einde";$("btn-half").disabled=c.half===4&&left<=0;
   decorateMatch();
 }
 // Wisselvolgorde: onderaan de startwissels, elke speelster die eruit gaat komt erbovenop
