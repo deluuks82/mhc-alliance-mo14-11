@@ -428,7 +428,7 @@ body.match .order-toggle{display:flex}body.match .dugout.order-open .order-toggl
       <div class="fr"><code>A</code> Spelers (vanaf rij 2) · <code>B</code> Positievoorkeur · <code>C</code> Coaches · <code>D</code> Scheidsrechters</div>
       <div class="fr">Voorkeur instellen als <b>Links</b>, <b>Midden</b> of <b>Rechts</b>.</div>
     </div>
-    <div class="version">Versie 2.2 · 14 november 2026</div>
+    <div class="version">Versie 2.3 · 14 november 2026</div>
   </div>
 </section>
 
@@ -451,8 +451,8 @@ body.match .order-toggle{display:flex}body.match .dugout.order-open .order-toggl
 // ================== DATA ==================
 var D=window.APP_DATA||{};
 var MATCHES=D.matches||[], SPELERS=D.spelers||[], TEAM=D.teamNaam||"Team";
-var K_POS="mhc-11tal-v22-positions", K_PHOTO="mhc-11tal-v22-photos", K_CLOCK="mhc-11tal-v22-clock",
-    K_START="mhc-11tal-v22-startformatie", K_HIST="mhc-11tal-v22-history", K_PICK="mhc-11tal-v22-picker", K_ORDER="mhc-11tal-v22-wisselvolgorde", K_SCORE="mhc-11tal-v22-score";
+var K_POS="mhc-11tal-v23-positions", K_PHOTO="mhc-11tal-v23-photos", K_CLOCK="mhc-11tal-v23-clock",
+    K_START="mhc-11tal-v23-startformatie", K_HIST="mhc-11tal-v23-history", K_PICK="mhc-11tal-v23-picker", K_ORDER="mhc-11tal-v23-wisselvolgorde", K_SCORE="mhc-11tal-v23-score";
 function load(k,def){try{var v=localStorage.getItem(k);return v?JSON.parse(v):def;}catch(e){return def;}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){toast("Opslaan lukt niet (geheugen vol?)");}}
 function clone(o){return JSON.parse(JSON.stringify(o));}
@@ -486,7 +486,7 @@ function badge(pos){return'<div class="badge pb-'+(posLijn(pos)||"geen")+'">'+po
 // Opslag: sx 0-550 langs de lengte, sy 0-430 langs de breedte (gelijk aan eerdere versies)
 var SVG_W=550,SVG_H=430,VELD_LENGTE=91.4;
 var BANEN=[-22.5,-15,-7.5,0,7.5,15,22.5];
-var KOLOMMEN=(function(){var st=VELD_LENGTE/16,k=[2.5];for(var i=1;i<16;i++)k.push(Math.round(i*st*1000)/1000);k.push(VELD_LENGTE-2.5);return k;})();
+var KOLOMMEN=(function(){var k=[2.5],st=2.85;for(var x=5.7;x<VELD_LENGTE-4;x+=st)k.push(Math.round(x*100)/100);k.push(VELD_LENGTE-2.5);return k;})();
 var KEEPER_X=[2.5,VELD_LENGTE-2.5];
 function portrait(){var st=$("stage");return st.clientHeight>st.clientWidth;}
 var isPortrait=false;
@@ -502,12 +502,12 @@ function slimmeBanen(m){
   return[-24,-20,-16,-12,-8,-4,0,4,8,12,16,20,24];
 }
 function snapPlek(sx,sy,bezet){
-  var m=svgToM(sx,sy),x=nearest(KOLOMMEN,m.mx),banen=slimmeBanen(m),y=nearest(banen,m.my),p={mx:x,my:y};
+  var m=svgToM(sx,sy),banen=slimmeBanen(m),p={mx:nearest(KOLOMMEN,m.mx),my:nearest(banen,m.my)};
   if(bezet&&bezet[key(p)]){
     var best=null,bd=Infinity;
-    // Eerst ruimte zoeken binnen dezelfde linie. Pas daarna naar een andere lengtelijn uitwijken.
-    banen.forEach(function(yy){var q={mx:x,my:yy};if(bezet[key(q)])return;var d=Math.pow((yy-m.my)*.9,2);if(d<bd){bd=d;best=q;}});
-    if(!best||bd>110)KOLOMMEN.forEach(function(xx){banen.forEach(function(yy){var q={mx:xx,my:yy};if(bezet[key(q)])return;var d=Math.pow((xx-m.mx)*1.15,2)+Math.pow(yy-m.my,2);if(d<bd){bd=d;best=q;}});});
+    // Kies de vrije plek die echt het dichtst bij het loslaatpunt ligt.
+    // Lengte en breedte tellen gelijk mee: geen voorkeur meer om iedereen op dezelfde lijn te zetten.
+    KOLOMMEN.forEach(function(xx){banen.forEach(function(yy){var q={mx:xx,my:yy};if(bezet[key(q)])return;var d=Math.pow(xx-m.mx,2)+Math.pow(yy-m.my,2);if(d<bd){bd=d;best=q;}});});
     if(best)p=best;
   }
   return p;
