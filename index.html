@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl"><head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -119,15 +122,6 @@ body.match .op-topbar{display:none}
 .menu button{display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;border-radius:10px;font-size:13.5px;font-weight:800;color:#fff;text-align:left}
 .menu button.danger{color:#F87171}
 .menu button:active{background:#333}
-.shoot{display:flex;align-items:center;gap:7px;margin-top:10px;background:var(--card-d2);border-radius:16px;padding:8px 8px 8px 12px}
-.shoot-info{flex:1;min-width:0}
-.shoot-info small{display:block;font-size:9.5px;font-weight:900;letter-spacing:.08em;color:#FDE047;text-transform:uppercase}
-.shoot-info b{display:block;font-size:17px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.shoot-info em{display:block;font-style:normal;font-size:10.5px;color:rgba(255,255,255,.5);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.btn-s{height:42px;border-radius:12px;padding:0 11px;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:900;white-space:nowrap;flex-shrink:0}
-.btn-s.skip{border:1.5px solid #444;color:#fff}
-.btn-s.go{background:var(--green);color:#fff}
-.btn-s.icon{width:42px;padding:0;background:#2E2E2E;color:#fff}
 .match-hint{display:none;flex-shrink:0;margin:6px 10px 6px;background:#1A1A1A;border-radius:12px;padding:8px 12px;font-size:11.5px;color:rgba(255,255,255,.8);font-weight:700;text-align:center;min-height:32px}
 body.match .match-hint{display:block}
 .match-hint.act{background:rgba(250,204,21,.15);color:#FDE047}
@@ -178,15 +172,13 @@ body.match .dug-sec.volgorde{display:flex;flex:1 1 0;min-height:0;overflow:hidde
 .l-keeper .circ{border-color:#FDE047}.l-achter .circ{border-color:#60A5FA}.l-midden .circ{border-color:#C4B5FD}.l-voor .circ{border-color:#FB7185}
 .badge{position:absolute;top:-5px;right:-10px;min-width:20px;height:19px;padding:0 5px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;line-height:1;border:2px solid var(--dark);pointer-events:none}
 .bank .badge{min-width:16px;height:16px;font-size:8px;right:-7px;padding:0 4px;border-width:1.5px}
-.pb-keeper{background:#FDE047;color:#4A3200}.pb-achter{background:#60A5FA;color:#062B5C}.pb-midden{background:#C4B5FD;color:#33196B}.pb-voor{background:#FB7185;color:#57061C}.pb-geen{background:#333;color:rgba(255,255,255,.75);border-style:dashed;border-color:rgba(255,255,255,.4)}
+.pb-keeper{background:#FDE047;color:#4A3200}.pb-links{background:#60A5FA;color:#062B5C}.pb-midden{background:#C4B5FD;color:#33196B}.pb-rechts{background:#FB7185;color:#57061C}.pb-geen{background:#333;color:rgba(255,255,255,.75);border-style:dashed;border-color:rgba(255,255,255,.4)}
 .nm{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:800;color:#fff;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border-radius:20px;padding:2px 8px;margin-top:4px;white-space:nowrap;line-height:1.35}
 .sp .nm{position:absolute;top:100%;left:50%;transform:translateX(-50%)}
 .bank .nm{background:none;padding:0 2px;font-size:9.5px;max-width:70px;overflow:hidden;text-overflow:ellipsis;display:block;margin-top:3px}
 .stat{display:none;font-size:9.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.18);padding:1px 6px;border-radius:20px;margin-top:3px;white-space:nowrap;line-height:1.35;font-variant-numeric:tabular-nums}
 .sp .stat{display:none!important}
 body.match .stat{display:block}
-.so-badge{display:none;position:absolute;bottom:-3px;left:-7px;width:19px;height:19px;border-radius:50%;background:#111;color:#fff;border:1.5px solid #FDE047;font-size:9.5px;font-weight:900;align-items:center;justify-content:center;line-height:1;pointer-events:none}
-body.match .sp .so-badge,body.match .wissel .so-badge{display:flex}
 .bt-badge{display:none;margin-right:-5px;padding:1px 6px;border-radius:20px;font-weight:900;font-variant-numeric:tabular-nums;font-size:9.5px}
 body.match .sp .bt-badge{display:inline-block}
 .bt-badge.nul,.stat.nul{background:rgba(255,255,255,.2);color:rgba(255,255,255,.85)}
@@ -261,7 +253,7 @@ tbody tr:last-child td:first-child{background:var(--bg)}
 .ri{width:32px;height:32px;border-radius:50%;background:linear-gradient(160deg,#0A8A64,#004A35);color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .rn{font-size:13.5px;font-weight:800;flex:1}
 .chip{font-size:10px;font-weight:800;border-radius:20px;padding:3px 8px;margin-left:3px}
-.c-keeper{background:#FEF9C3;color:#713F12}.c-achter{background:#DBEAFE;color:#1D4ED8}.c-midden{background:#EDE9FE;color:#5B21B6}.c-voor{background:#FFE4E6;color:#9F1239}.c-geen{background:var(--bg);color:var(--mut)}.c-coach{background:#E0E7FF;color:#3730A3}
+.c-keeper{background:#FEF9C3;color:#713F12}.c-links{background:#DBEAFE;color:#1D4ED8}.c-midden{background:#EDE9FE;color:#5B21B6}.c-rechts{background:#FFE4E6;color:#9F1239}.c-geen{background:var(--bg);color:var(--mut)}.c-coach{background:#E0E7FF;color:#3730A3}
 .version{font-size:10.5px;color:var(--mut);text-align:center;margin-top:12px;font-weight:600}
 /* ===== Liggend (telefoon) ===== */
 @media (orientation:landscape) and (max-height:520px){
@@ -274,9 +266,6 @@ tbody tr:last-child td:first-child{background:var(--bg)}
  .sm{width:38px;height:38px;border-radius:11px;font-size:0}.sm svg.i{width:16px;height:16px}
  .play{width:42px;height:42px}.play svg{width:18px;height:18px}
  .prog{display:none}
- .shoot{flex:1;min-width:0;margin-top:0;padding:4px 4px 4px 10px}
- .shoot-info em{display:none}.shoot-info b{font-size:14px}
- .btn-s{height:34px}
  .menu{top:48px;right:auto;left:150px}
  .match-hint{margin:2px 10px 4px;padding:4px 10px;min-height:22px;font-size:10px}
  .bench-legend{padding-bottom:3px}
@@ -301,7 +290,7 @@ body.match .dug-sec.volgorde{display:none;flex:1 1 auto;min-height:0;border-top:
 body.match .dugout.order-open .dug-sec.volgorde{display:flex}body.match .dugout.order-open .dug-sec.wissel{display:none}
 .order-toggle{display:none;width:calc(100% - 8px);min-height:30px;margin:2px 4px 0;border-radius:9px;background:#242424;color:rgba(255,255,255,.78);font-size:8px;font-weight:900;letter-spacing:.05em;align-items:center;justify-content:center;gap:3px;flex-shrink:0}
 body.match .order-toggle{display:flex}body.match .dugout.order-open .order-toggle{color:#9DE3CB;background:#16362c}body.match .dugout.order-open .order-toggle .order-arrow{transform:rotate(180deg)}.order-arrow{font-size:9px;transition:transform .15s ease}
-@media (orientation:portrait){body.match .hud{padding:7px 9px;border-radius:18px}body.match .hrow{display:grid;grid-template-columns:minmax(86px,1fr) auto auto auto auto;gap:4px;align-items:center}body.match .clock{grid-column:1;grid-row:1;min-width:86px}body.match .clock small{font-size:10px;letter-spacing:.13em}body.match .clock strong{font-size:32px;line-height:.95}body.match .sm{height:42px;min-width:48px;padding:4px 7px;border-radius:12px;font-size:10px}body.match .sm svg{width:18px;height:18px}body.match .play{width:48px;height:48px}.scorebox{grid-column:1/-1;grid-row:2;width:100%;height:34px;justify-content:center;padding:2px 6px;margin-top:1px;border-radius:10px}.score-side{flex:1;justify-content:center;max-width:135px}.score-btn{width:28px;height:28px;border-radius:8px;font-size:16px}.score-num{font-size:19px;min-width:24px}.score-colon{font-size:16px}body.match .prog{margin-top:6px}body.match .shoot{margin-top:7px;padding:8px 10px;min-height:62px;border-radius:14px}body.match .shoot-info b{font-size:17px}body.match .shoot-info em{font-size:10px}body.match .btn-s{min-height:42px;padding:7px 10px}body.match .bench-legend{padding-bottom:3px;font-size:9px}body.match .match-hint{min-height:36px;margin-top:5px}}
+@media (orientation:portrait){body.match .hud{padding:7px 9px;border-radius:18px}body.match .hrow{display:grid;grid-template-columns:minmax(86px,1fr) auto auto auto auto;gap:4px;align-items:center}body.match .clock{grid-column:1;grid-row:1;min-width:86px}body.match .clock small{font-size:10px;letter-spacing:.13em}body.match .clock strong{font-size:32px;line-height:.95}body.match .sm{height:42px;min-width:48px;padding:4px 7px;border-radius:12px;font-size:10px}body.match .sm svg{width:18px;height:18px}body.match .play{width:48px;height:48px}.scorebox{grid-column:1/-1;grid-row:2;width:100%;height:34px;justify-content:center;padding:2px 6px;margin-top:1px;border-radius:10px}.score-side{flex:1;justify-content:center;max-width:135px}.score-btn{width:28px;height:28px;border-radius:8px;font-size:16px}.score-num{font-size:19px;min-width:24px}.score-colon{font-size:16px}body.match .prog{margin-top:6px}body.match .bench-legend{padding-bottom:3px;font-size:9px}body.match .match-hint{min-height:36px;margin-top:5px}}
 /* ===== Programma: zaalspeeldag als 1 kaartje ===== */
 .day-matches{padding:12px 14px;display:flex;flex-direction:column;gap:9px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff 0%,#FAFAF8 100%)}
 .day-match{position:relative;display:flex;gap:12px;align-items:center;padding:12px 13px;background:#fff;border:1px solid #ECECEA;border-radius:15px;box-shadow:0 3px 10px rgba(0,0,0,.045);overflow:hidden}
@@ -310,7 +299,7 @@ body.match .order-toggle{display:flex}body.match .dugout.order-open .order-toggl
 .day-match div{min-width:0;flex:1}.day-match b{display:block;font-size:14.5px;line-height:1.25;font-weight:900;color:#151515;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.day-match small{display:flex;align-items:center;color:var(--mut);font-size:11.5px;font-weight:650;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.day-match small:before{content:"⌖";font-size:13px;color:var(--green);margin-right:4px;font-weight:900}
 .day-matches.compact{margin:0;padding:10px 14px 12px;background:#F7F7F4}.day-matches.compact .day-match{box-shadow:none}
 .dug-sec[data-zone="afgemeld"] .bank .av{display:flex!important}.dug-sec[data-zone="afgemeld"] .bank{display:flex!important;align-items:center;gap:5px}</style>
-<script id="app-data">window.APP_DATA={"teamNaam":"MO14-11","matches":[{"dag":"29","maand":"Aug","type":"Thuis","tegenstander":"","tijd_wedstrijd":"12:15","tijd_verzamelen":"11:45","locatie":"HC Spaarndam","plaats_verzamelen":"MHC Alliance","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Witte sokken","fluiten":"Erik","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"12","maand":"Sep","type":"Thuis","tegenstander":"","tijd_wedstrijd":"12:15","tijd_verzamelen":"11:45","locatie":"Hurley","plaats_verzamelen":"MHC Alliance","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Witte sokken","fluiten":"Rodrick","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"19","maand":"Sep","type":"Uit","tegenstander":"Rood-Wit · MO14-6","tijd_wedstrijd":"nnb","tijd_verzamelen":"nnb","locatie":"HC Haarlem","plaats_verzamelen":"Handellaan","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Rode sokken","fluiten":"","keeper":"","fruit":"","rijden":["Lilou","Hanna","Sofie","Isa"],"afgemeld":"","bijzonderheden":""},{"dag":"26","maand":"Sep","type":"Uit","tegenstander":"Uitgeest · MO14-3","tijd_wedstrijd":"11:00","tijd_verzamelen":"","locatie":"Myra","plaats_verzamelen":"Handellaan","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Rood shirt / Witte sokken","fluiten":"","keeper":"","fruit":"","rijden":["Veerle","Catalina","Olivia","Fiene"],"afgemeld":"","bijzonderheden":""},{"dag":"3","maand":"Okt","type":"Thuis","tegenstander":"Westerpark · MO14-11","tijd_wedstrijd":"12:15","tijd_verzamelen":"11:45","locatie":"VVV HC","plaats_verzamelen":"MHC Alliance","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Witte sokken","fluiten":"Marc","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"24","maand":"Okt","type":"Uit","tegenstander":"Myra · MO14-6","tijd_wedstrijd":"16:05","tijd_verzamelen":"","locatie":"FIT","plaats_verzamelen":"Handellaan","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Rode sokken","fluiten":"","keeper":"","fruit":"","rijden":["Eefje","Charlotte","Kiki","Suri"],"afgemeld":"","bijzonderheden":""},{"dag":"31","maand":"Okt","type":"Thuis","tegenstander":"Rood-Wit · MO14-8","tijd_wedstrijd":"17:45","tijd_verzamelen":"17:15","locatie":"Spaarndam","plaats_verzamelen":"MHC Alliance","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Witte sokken","fluiten":"Mike","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"7","maand":"Nov","type":"Uit","tegenstander":"Athena · MO14-8","tijd_wedstrijd":"04:48","tijd_verzamelen":"","locatie":"Bloemendaal","plaats_verzamelen":"Handellaan","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Rode sokken","fluiten":"","keeper":"","fruit":"","rijden":["Lilian","Micaela","Talia","Isa"],"afgemeld":"","bijzonderheden":""},{"dag":"14","maand":"Nov","type":"Uit","tegenstander":"Bennebroek · MO14-4","tijd_wedstrijd":"07:12","tijd_verzamelen":"","locatie":"Westerpark","plaats_verzamelen":"Handellaan","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Rood shirt / Rode sokken","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":"Op de fiets"},{"dag":"21","maand":"Nov","type":"Thuis","tegenstander":"Amsterdam · MO14-6","tijd_wedstrijd":"10:30","tijd_verzamelen":"","locatie":"Castricum","plaats_verzamelen":"MHC Alliance","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Witte sokken","fluiten":"Matthijs","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"28","maand":"Nov","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"28","maand":"Nov","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"10","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"10","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"16","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"16","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"23","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"23","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"30","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"30","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"14","maand":"Feb","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"14","maand":"Feb","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""}],"spelers":[{"name":"Catalina","initials":"Ca","zone":"wissel","sx":0,"sy":0,"pos":"Keepen / Achter / Voor"},{"name":"Charlotte","initials":"Ch","zone":"wissel","sx":0,"sy":0,"pos":"Voor"},{"name":"Eefje","initials":"Ee","zone":"wissel","sx":0,"sy":0,"pos":"Midden / Voor"},{"name":"Fiene","initials":"Fi","zone":"wissel","sx":0,"sy":0,"pos":"Midden / Voor"},{"name":"Hanna","initials":"Ha","zone":"wissel","sx":0,"sy":0,"pos":"Keepen / Midden"},{"name":"Isa","initials":"Is","zone":"wissel","sx":0,"sy":0,"pos":"Achter"},{"name":"Kiki","initials":"Ki","zone":"wissel","sx":0,"sy":0,"pos":"Midden"},{"name":"Lilian","initials":"Li","zone":"wissel","sx":0,"sy":0,"pos":"Achter / Voor"},{"name":"Lilou","initials":"Li","zone":"wissel","sx":0,"sy":0,"pos":"Achter / Midden"},{"name":"Micaela","initials":"Mi","zone":"wissel","sx":0,"sy":0,"pos":"Achter"},{"name":"Olivia","initials":"Ol","zone":"wissel","sx":0,"sy":0,"pos":""},{"name":"Sofie","initials":"So","zone":"wissel","sx":0,"sy":0,"pos":""},{"name":"Suri","initials":"Su","zone":"wissel","sx":0,"sy":0,"pos":""},{"name":"Talia","initials":"Ta","zone":"wissel","sx":0,"sy":0,"pos":""},{"name":"Veerle","initials":"Ve","zone":"wissel","sx":0,"sy":0,"pos":""},{"name":"Romy","initials":"Ro","zone":"coach","sx":0,"sy":0,"pos":""},{"name":"Luuk","initials":"Lu","zone":"coach","sx":0,"sy":0,"pos":""}],"positions":{"Catalina":{"zone":"veld","sx":36,"sy":215},"Charlotte":{"zone":"veld","sx":145,"sy":75},"Eefje":{"zone":"veld","sx":145,"sy":165},"Fiene":{"zone":"veld","sx":145,"sy":265},"Hanna":{"zone":"veld","sx":145,"sy":355},"Isa":{"zone":"veld","sx":285,"sy":105},"Kiki":{"zone":"veld","sx":285,"sy":215},"Lilian":{"zone":"veld","sx":285,"sy":325},"Lilou":{"zone":"veld","sx":430,"sy":105},"Micaela":{"zone":"veld","sx":430,"sy":215},"Olivia":{"zone":"veld","sx":430,"sy":325},"Sofie":{"zone":"wissel"},"Suri":{"zone":"wissel"},"Talia":{"zone":"wissel"},"Veerle":{"zone":"wissel"}},"photos":{}};</script>
+<script id="app-data">window.APP_DATA={"teamNaam":"MO14-11","matches":[{"dag":"29","maand":"Aug","type":"Thuis","tegenstander":"","tijd_wedstrijd":"12:15","tijd_verzamelen":"11:45","locatie":"HC Spaarndam","plaats_verzamelen":"MHC Alliance","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Witte sokken","fluiten":"Erik","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"12","maand":"Sep","type":"Thuis","tegenstander":"","tijd_wedstrijd":"12:15","tijd_verzamelen":"11:45","locatie":"Hurley","plaats_verzamelen":"MHC Alliance","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Witte sokken","fluiten":"Rodrick","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"19","maand":"Sep","type":"Uit","tegenstander":"Rood-Wit · MO14-6","tijd_wedstrijd":"nnb","tijd_verzamelen":"nnb","locatie":"HC Haarlem","plaats_verzamelen":"Handellaan","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Rode sokken","fluiten":"","keeper":"","fruit":"","rijden":["Lilou","Hanna","Sofie","Isa"],"afgemeld":"","bijzonderheden":""},{"dag":"26","maand":"Sep","type":"Uit","tegenstander":"Uitgeest · MO14-3","tijd_wedstrijd":"11:00","tijd_verzamelen":"","locatie":"Myra","plaats_verzamelen":"Handellaan","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Rood shirt / Witte sokken","fluiten":"","keeper":"","fruit":"","rijden":["Veerle","Catalina","Olivia","Fiene"],"afgemeld":"","bijzonderheden":""},{"dag":"3","maand":"Okt","type":"Thuis","tegenstander":"Westerpark · MO14-11","tijd_wedstrijd":"12:15","tijd_verzamelen":"11:45","locatie":"VVV HC","plaats_verzamelen":"MHC Alliance","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Witte sokken","fluiten":"Marc","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"24","maand":"Okt","type":"Uit","tegenstander":"Myra · MO14-6","tijd_wedstrijd":"16:05","tijd_verzamelen":"","locatie":"FIT","plaats_verzamelen":"Handellaan","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Rode sokken","fluiten":"","keeper":"","fruit":"","rijden":["Eefje","Charlotte","Kiki","Suri"],"afgemeld":"","bijzonderheden":""},{"dag":"31","maand":"Okt","type":"Thuis","tegenstander":"Rood-Wit · MO14-8","tijd_wedstrijd":"17:45","tijd_verzamelen":"17:15","locatie":"Spaarndam","plaats_verzamelen":"MHC Alliance","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Witte sokken","fluiten":"Mike","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"7","maand":"Nov","type":"Uit","tegenstander":"Athena · MO14-8","tijd_wedstrijd":"04:48","tijd_verzamelen":"","locatie":"Bloemendaal","plaats_verzamelen":"Handellaan","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Rode sokken","fluiten":"","keeper":"","fruit":"","rijden":["Lilian","Micaela","Talia","Isa"],"afgemeld":"","bijzonderheden":""},{"dag":"14","maand":"Nov","type":"Uit","tegenstander":"Bennebroek · MO14-4","tijd_wedstrijd":"07:12","tijd_verzamelen":"","locatie":"Westerpark","plaats_verzamelen":"Handellaan","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Rood shirt / Rode sokken","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":"Op de fiets"},{"dag":"21","maand":"Nov","type":"Thuis","tegenstander":"Amsterdam · MO14-6","tijd_wedstrijd":"10:30","tijd_verzamelen":"","locatie":"Castricum","plaats_verzamelen":"MHC Alliance","veld":"","wedstrijd":"","zaalleiding":"","competitie":"Veld","tenue":"Wit shirt / Witte sokken","fluiten":"Matthijs","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"28","maand":"Nov","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"28","maand":"Nov","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"10","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"10","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"16","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"16","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"23","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"23","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"30","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"30","maand":"Jan","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"14","maand":"Feb","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"1","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""},{"dag":"14","maand":"Feb","type":"Thuis","tegenstander":"","tijd_wedstrijd":"NNB","tijd_verzamelen":"","locatie":"MHC Alliance","plaats_verzamelen":"","veld":"","wedstrijd":"2","zaalleiding":"","competitie":"Zaal","tenue":"","fluiten":"","keeper":"","fruit":"","rijden":[],"afgemeld":"","bijzonderheden":""}],"spelers":[{"name":"Catalina","initials":"Ca","zone":"wissel","sx":0,"sy":0,"pos":"Midden"},{"name":"Charlotte","initials":"Ch","zone":"wissel","sx":0,"sy":0,"pos":"Midden"},{"name":"Eefje","initials":"Ee","zone":"wissel","sx":0,"sy":0,"pos":"Midden"},{"name":"Fiene","initials":"Fi","zone":"wissel","sx":0,"sy":0,"pos":"Links"},{"name":"Hanna","initials":"Ha","zone":"wissel","sx":0,"sy":0,"pos":"Links"},{"name":"Isa","initials":"Is","zone":"wissel","sx":0,"sy":0,"pos":"Midden"},{"name":"Kiki","initials":"Ki","zone":"wissel","sx":0,"sy":0,"pos":"Rechts"},{"name":"Lilian","initials":"Li","zone":"wissel","sx":0,"sy":0,"pos":"Rechts"},{"name":"Lilou","initials":"Li","zone":"wissel","sx":0,"sy":0,"pos":"Links"},{"name":"Micaela","initials":"Mi","zone":"wissel","sx":0,"sy":0,"pos":"Links"},{"name":"Olivia","initials":"Ol","zone":"wissel","sx":0,"sy":0,"pos":"Links"},{"name":"Sofie","initials":"So","zone":"wissel","sx":0,"sy":0,"pos":"Midden"},{"name":"Suri","initials":"Su","zone":"wissel","sx":0,"sy":0,"pos":"Rechts"},{"name":"Talia","initials":"Ta","zone":"wissel","sx":0,"sy":0,"pos":"Midden"},{"name":"Veerle","initials":"Ve","zone":"wissel","sx":0,"sy":0,"pos":"Rechts"},{"name":"Dolf","initials":"Do","zone":"coach","sx":0,"sy":0,"pos":""},{"name":"Maaike","initials":"Ma","zone":"coach","sx":0,"sy":0,"pos":""}],"positions":{"Catalina":{"zone":"veld","sx":36,"sy":215},"Charlotte":{"zone":"veld","sx":145,"sy":75},"Eefje":{"zone":"veld","sx":145,"sy":165},"Fiene":{"zone":"veld","sx":145,"sy":265},"Hanna":{"zone":"veld","sx":145,"sy":355},"Isa":{"zone":"veld","sx":285,"sy":105},"Kiki":{"zone":"veld","sx":285,"sy":215},"Lilian":{"zone":"veld","sx":285,"sy":325},"Lilou":{"zone":"veld","sx":430,"sy":105},"Micaela":{"zone":"veld","sx":430,"sy":215},"Olivia":{"zone":"veld","sx":430,"sy":325},"Sofie":{"zone":"wissel"},"Suri":{"zone":"wissel"},"Talia":{"zone":"wissel"},"Veerle":{"zone":"wissel"}},"photos":{}};</script>
 </head>
 <body>
 <div class="app"><main class="screens">
@@ -347,12 +336,6 @@ body.match .order-toggle{display:flex}body.match .dugout.order-open .order-toggl
     </div>
     <div class="prog"><i id="prog"></i></div>
     <div class="menu" id="menu"><button type="button" class="danger" id="btn-reset-match"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></svg>Reset wedstrijd</button></div>
-    <div class="shoot">
-      <div class="shoot-info"><small>Shoot-out</small><b id="so-name">-</b><em id="so-meta"></em></div>
-      <button type="button" class="btn-s icon" id="btn-so-random" aria-label="Volgorde opnieuw loten"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path></svg></button>
-      <button type="button" class="btn-s skip" id="btn-so-skip">Sla over</button>
-      <button type="button" class="btn-s go" id="btn-so-done">✓ Genomen</button>
-    </div>
   </div>
   <div class="bench-legend"><span id="playtime-legend">Speeltijd · richttijd wordt berekend op basis van teamgrootte</span></div>
   <div class="op-main">
@@ -383,7 +366,7 @@ body.match .order-toggle{display:flex}body.match .dugout.order-open .order-toggl
   </div>
   <div class="match-hint" id="match-hint"></div>
   <div class="legend">
-    <span><i style="border-color:#FDE047"></i>Keeper</span><span><i style="border-color:#60A5FA"></i>Achter</span><span><i style="border-color:#C4B5FD"></i>Midden</span><span><i style="border-color:#FB7185"></i>Voor</span><span class="tip">Sleep om te verplaatsen · tik voor foto</span>
+    <span><i style="border-color:#FDE047"></i>Keeper</span><span><i style="border-color:#60A5FA"></i>Links</span><span><i style="border-color:#C4B5FD"></i>Midden</span><span><i style="border-color:#FB7185"></i>Rechts</span><span class="tip">Sleep om te verplaatsen · tik voor foto</span>
   </div>
 </section>
 
@@ -443,9 +426,9 @@ body.match .order-toggle{display:flex}body.match .dugout.order-open .order-toggl
       <div class="fr"><code>Q-T</code> Rijden 1-4 · <code>U</code> Afgemeld · <code>V</code> Bijzonderheden</div>
       <h3 style="margin-top:10px">Tabblad Team details</h3>
       <div class="fr"><code>A</code> Spelers (vanaf rij 2) · <code>B</code> Positievoorkeur · <code>C</code> Coaches · <code>D</code> Scheidsrechters</div>
-      <div class="fr">Meerdere voorkeuren scheiden met <b>/</b>, bijvoorbeeld <b>Midden / Voor</b>.</div>
+      <div class="fr">Voorkeur instellen als <b>Links</b>, <b>Midden</b> of <b>Rechts</b>.</div>
     </div>
-    <div class="version">Versie 2.0 · 14 november 2026</div>
+    <div class="version">Versie 2.1 · 14 november 2026</div>
   </div>
 </section>
 
@@ -468,8 +451,8 @@ body.match .order-toggle{display:flex}body.match .dugout.order-open .order-toggl
 // ================== DATA ==================
 var D=window.APP_DATA||{};
 var MATCHES=D.matches||[], SPELERS=D.spelers||[], TEAM=D.teamNaam||"Team";
-var K_POS="mhc-11tal-v1-positions", K_PHOTO="mhc-11tal-v1-photos", K_CLOCK="mhc-11tal-v1-clock", K_SHOOT="mhc-11tal-v1-shoot",
-    K_START="mhc-11tal-v1-startformatie", K_HIST="mhc-11tal-v1-history", K_PICK="mhc-11tal-v1-picker", K_ORDER="mhc-11tal-v1-wisselvolgorde", K_SCORE="mhc-11tal-v1-score";
+var K_POS="mhc-11tal-v2-positions", K_PHOTO="mhc-11tal-v2-photos", K_CLOCK="mhc-11tal-v2-clock",
+    K_START="mhc-11tal-v2-startformatie", K_HIST="mhc-11tal-v2-history", K_PICK="mhc-11tal-v2-picker", K_ORDER="mhc-11tal-v2-wisselvolgorde", K_SCORE="mhc-11tal-v2-score";
 function load(k,def){try{var v=localStorage.getItem(k);return v?JSON.parse(v):def;}catch(e){return def;}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){toast("Opslaan lukt niet (geheugen vol?)");}}
 function clone(o){return JSON.parse(JSON.stringify(o));}
@@ -493,8 +476,8 @@ function setAppHeight(){} // niet meer nodig: de schil regelt de hoogte
 
 // ================== POSITIE-HELPERS ==================
 function posParts(pos){if(!pos)return[];return String(pos).split("/").map(function(p){return p.trim();}).filter(function(p){var l=p.toLowerCase();return p&&l!=="geen"&&l!=="n.v.t.";});}
-function posKey(part){var p=String(part||"").toLowerCase();if(p.indexOf("keep")>=0||p==="k")return"keeper";if(p.indexOf("acht")>=0||p.indexOf("verdedig")>=0)return"achter";if(p.indexOf("mid")>=0)return"midden";if(p.indexOf("voor")>=0||p.indexOf("aanval")>=0)return"voor";return"";}
-var LETTER={keeper:"K",achter:"A",midden:"M",voor:"V"};
+function posKey(part){var p=String(part||"").toLowerCase();if(p.indexOf("keep")>=0||p==="k")return"keeper";if(p.indexOf("link")>=0||p==="l")return"links";if(p.indexOf("mid")>=0||p==="m")return"midden";if(p.indexOf("recht")>=0||p==="r")return"rechts";return"";}
+var LETTER={keeper:"K",links:"L",midden:"M",rechts:"R"};
 function posLabel(pos){var ps=posParts(pos);if(!ps.length)return"–";return ps.map(function(p){return LETTER[posKey(p)]||p.charAt(0).toUpperCase();}).join("/");}
 function posLijn(pos){var ps=posParts(pos);return ps.length?(posKey(ps[0])||""):"";}
 function badge(pos){return'<div class="badge pb-'+(posLijn(pos)||"geen")+'">'+posLabel(pos)+'</div>';}
@@ -577,7 +560,7 @@ function inner(s){var p=photos[s.name];return p?'<img src="'+p+'" alt="">':esc(s
 function spEl(s,cls){
   var el=document.createElement("div"),lj=s.zone==="coach"?"":posLijn(s.pos);
   el.className=cls+(lj?" l-"+lj:"");el.dataset.name=s.name;
-  el.innerHTML='<div class="av"><div class="circ">'+inner(s)+'</div>'+(s.zone==="coach"?"":badge(s.pos))+'<div class="so-badge"></div></div><div class="nm">'+esc(s.name)+'<span class="bt-badge"></span></div><div class="stat"></div>';
+  el.innerHTML='<div class="av"><div class="circ">'+inner(s)+'</div>'+(s.zone==="coach"?"":badge(s.pos))+'</div><div class="nm">'+esc(s.name)+'<span class="bt-badge"></span></div><div class="stat"></div>';
   return el;
 }
 function render(){
@@ -703,7 +686,7 @@ function toggleClock(){
   if(c.running){c.elapsed=elapsed(c);c.running=false;c.runAt=null;syncBench(c,now);save(K_CLOCK,c);toast("Gepauzeerd");}
   else{
     if(elapsed(c)>=periodMs()){toast(c.period<periodConfig().count?"Periode voorbij · tik Volgende":"Wedstrijd is afgelopen");return;}
-    if(!c.started){c.started=true;save(K_START,positions);save(K_SHOOT,null);save(K_ORDER,newOrder());}
+    if(!c.started){c.started=true;save(K_START,positions);save(K_ORDER,newOrder());}
     c.running=true;c.runAt=now;syncBench(c,now);save(K_CLOCK,c);toast(c.elapsed?"Hervat":"Wedstrijd gestart");
   }
   updateHud();
@@ -721,29 +704,9 @@ function nextHalf(){
 function resetMatch(){
   if(!confirm("Klok, wisseltijden en score resetten en terug naar de beginopstelling?"))return;
   var start=load(K_START,null);if(start)positions=clone(start);
-  save(K_CLOCK,null);save(K_SHOOT,null);save(K_HIST,[]);save(K_ORDER,null);save(K_SCORE,{us:0,them:0});localStorage.removeItem(K_START);selOut=null;
+  save(K_CLOCK,null);save(K_HIST,[]);save(K_ORDER,null);save(K_SCORE,{us:0,them:0});localStorage.removeItem(K_START);selOut=null;
   persistPositions();render();updateHud();toast("Gereset naar beginopstelling");
 }
-
-// ================== WEDSTRIJDMODUS: SHOOT-OUTS ==================
-// Volgorde: wie het minst vaak aan de beurt was (genomen of overgeslagen) eerst,
-// daarna wie het minst vaak echt nam, daarna wie het langst geleden was, daarna loting.
-function shootState(){var s=load(K_SHOOT,null);if(!s)s={count:{},handled:{},last:{},seed:{}};return s;}
-function eligible(){var k=keeperName();return players().filter(function(s){return zoneOf(s.name)==="veld"&&s.name!==k;}).map(function(s){return s.name;});}
-function hash(s){var h=7;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%100003;return h/100003;}
-function seedOf(st,n){return st.seed[n]!==undefined?st.seed[n]:hash(n);}
-function shootOrder(st){
-  return eligible().sort(function(a,b){
-    return((st.handled[a]||0)-(st.handled[b]||0))||((st.count[a]||0)-(st.count[b]||0))||((st.last[a]||0)-(st.last[b]||0))||(seedOf(st,a)-seedOf(st,b));
-  });
-}
-function shootAction(type){
-  var st=shootState(),order=shootOrder(st),n=order[0];if(!n){toast("Geen speelster beschikbaar");return;}
-  pushHist();st.handled[n]=(st.handled[n]||0)+1;st.last[n]=Date.now();
-  if(type==="done"){st.count[n]=(st.count[n]||0)+1;toast(n+" genomen · "+st.count[n]+"x");}else toast(n+" overgeslagen");
-  save(K_SHOOT,st);updateHud();
-}
-function shootRandom(){var st=shootState();pushHist();st.seed={};players().forEach(function(s){st.seed[s.name]=Math.random();});save(K_SHOOT,st);updateHud();toast("Volgorde opnieuw geloot");}
 
 // ================== WEDSTRIJDMODUS: WISSELEN ==================
 var selOut=null;
@@ -763,24 +726,23 @@ function doSwap(out,inn){
   syncBench(c,now);save(K_CLOCK,c);
   selOut=null;persistPositions();render();updateHud();toast(out+" eruit · "+inn+" erin");
 }
-function pushHist(){var h=load(K_HIST,[]);h.push({pos:clone(positions),clock:clockState().bench,shoot:shootState(),order:load(K_ORDER,null),score:scoreState()});if(h.length>40)h.shift();save(K_HIST,h);}
+function pushHist(){var h=load(K_HIST,[]);h.push({pos:clone(positions),clock:clockState().bench,order:load(K_ORDER,null),score:scoreState()});if(h.length>40)h.shift();save(K_HIST,h);}
 function undo(){
   var h=load(K_HIST,[]),a=h.pop();if(!a){toast("Niets om terug te zetten");return;}
   save(K_HIST,h);positions=a.pos;var c=clockState(),now=Date.now();c.bench=a.clock;
   Object.keys(c.bench).forEach(function(n){if(c.bench[n].since!==null&&!c.running)c.bench[n].since=null;});syncBench(c,now);
-  save(K_CLOCK,c);save(K_SHOOT,a.shoot);save(K_ORDER,a.order===undefined?null:a.order);if(a.score)save(K_SCORE,a.score);selOut=null;persistPositions();render();updateHud();toast("Laatste actie teruggezet");
+  save(K_CLOCK,c);save(K_ORDER,a.order===undefined?null:a.order);if(a.score)save(K_SCORE,a.score);selOut=null;persistPositions();render();updateHud();toast("Laatste actie teruggezet");
 }
 
 // ================== HUD BIJWERKEN ==================
 function decorateMatch(){
-  var on=mode==="wedstrijd",c=clockState(),st=shootState(),k=on?keeperName():null;
+  var on=mode==="wedstrijd",c=clockState(),k=on?keeperName():null;
   document.querySelectorAll("#page-veld .sp,#page-veld .bank").forEach(function(el){
     var n=el.dataset.name;el.classList.toggle("sel",on&&selOut===n);
     el.classList.toggle("choice",on&&!!selOut&&el.classList.contains("wissel"));
     var kt=el.querySelector(".keeper-tag");if(kt)kt.remove();
     if(on&&n===k){var t=document.createElement("div");t.className="keeper-tag";t.textContent="🧤";el.querySelector(".av").appendChild(t);}
     var s=el.querySelector(".stat");if(s&&on&&!el.classList.contains("coach")){var bm=benchMs(c,n),pm=Math.max(0,(c.period-1)*periodMs()+elapsed(c)-bm),mn=pm/60000;s.textContent=fmt(pm);s.className="stat "+playColor(pm);}
-    var sb=el.querySelector(".so-badge");if(sb)sb.textContent=st.count[n]||0;
     var bt=el.querySelector(".bt-badge");if(bt&&on){var bm=benchMs(c,n),ms=Math.max(0,(c.period-1)*periodMs()+elapsed(c)-bm),mn=ms/60000;bt.textContent=fmt(ms);bt.className="bt-badge "+playColor(ms);}
   });
   if(on)renderOrder();
@@ -795,10 +757,6 @@ function updateHud(){
   var cfg=periodConfig();$("half-label").textContent=(cfg.count===4?(c.period+"e kwart"):(c.period+"e helft"))+(left>0?" · nog":" · klaar");$("prog").style.width=Math.min(100,elapsed(c)/periodMs()*100)+"%";
   var b=$("btn-clock"),bs=c.running?"run":"stop";if(b.dataset.st!==bs){b.dataset.st=bs;b.innerHTML=c.running?PAUSE_SVG:PLAY_SVG;}b.classList.toggle("running",c.running);b.setAttribute("aria-label",c.running?"Pauze":(c.started?"Hervat":"Start"));
   $("half-txt").textContent=c.period<periodConfig().count?"Volgende":"Einde";$("btn-half").disabled=c.period===periodConfig().count&&left<=0;
-  var st=shootState(),o=shootOrder(st),n=o[0];
-  $("so-name").textContent=n||"-";
-  if(n){var min=st.handled[n]||0,klaar=o.filter(function(x){return(st.handled[x]||0)>min;}).length;$("so-meta").textContent="Ronde "+(min+1)+" · "+klaar+"/"+o.length+" geweest · "+(st.count[n]||0)+"× genomen";}
-  else $("so-meta").textContent="Geen veldspeelsters";
   decorateMatch();
 }
 // Wisselvolgorde: onderaan de startwissels, elke speelster die eruit gaat komt erbovenop
@@ -1245,8 +1203,6 @@ function init(){
   $("btn-undo").addEventListener("click",undo);$("btn-reset-match").addEventListener("click",function(){closeMenu();resetMatch();});
   $("btn-more").addEventListener("click",function(e){e.stopPropagation();var o=!$("menu").classList.contains("open");$("menu").classList.toggle("open",o);$("btn-more").setAttribute("aria-expanded",o?"true":"false");});
   document.addEventListener("click",function(e){if(!e.target.closest("#menu"))closeMenu();});
-  $("btn-so-done").addEventListener("click",function(){shootAction("done");});$("btn-so-skip").addEventListener("click",function(){shootAction("skip");});
-  $("btn-so-random").addEventListener("click",shootRandom);
   $("btn-download").addEventListener("click",downloadHTML);$("btn-poster").addEventListener("click",poster);
   $("btn-photos").addEventListener("click",function(){if(!confirm("Alle foto's wissen?"))return;photos={};save(K_PHOTO,photos);toast("Foto's gewist");});
   var rt;function relayout(){clearTimeout(rt);rt=setTimeout(function(){setAppHeight();orderSig="";render();},120);}
