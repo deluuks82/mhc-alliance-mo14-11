@@ -428,7 +428,7 @@ body.match .order-toggle{display:flex}body.match .dugout.order-open .order-toggl
       <div class="fr"><code>A</code> Spelers (vanaf rij 2) · <code>B</code> Positievoorkeur · <code>C</code> Coaches · <code>D</code> Scheidsrechters</div>
       <div class="fr">Voorkeur instellen als <b>Links</b>, <b>Midden</b> of <b>Rechts</b>.</div>
     </div>
-    <div class="version">Versie 2.1 · 14 november 2026</div>
+    <div class="version">Versie 2.2 · 14 november 2026</div>
   </div>
 </section>
 
@@ -451,8 +451,8 @@ body.match .order-toggle{display:flex}body.match .dugout.order-open .order-toggl
 // ================== DATA ==================
 var D=window.APP_DATA||{};
 var MATCHES=D.matches||[], SPELERS=D.spelers||[], TEAM=D.teamNaam||"Team";
-var K_POS="mhc-11tal-v2-positions", K_PHOTO="mhc-11tal-v2-photos", K_CLOCK="mhc-11tal-v2-clock",
-    K_START="mhc-11tal-v2-startformatie", K_HIST="mhc-11tal-v2-history", K_PICK="mhc-11tal-v2-picker", K_ORDER="mhc-11tal-v2-wisselvolgorde", K_SCORE="mhc-11tal-v2-score";
+var K_POS="mhc-11tal-v22-positions", K_PHOTO="mhc-11tal-v22-photos", K_CLOCK="mhc-11tal-v22-clock",
+    K_START="mhc-11tal-v22-startformatie", K_HIST="mhc-11tal-v22-history", K_PICK="mhc-11tal-v22-picker", K_ORDER="mhc-11tal-v22-wisselvolgorde", K_SCORE="mhc-11tal-v22-score";
 function load(k,def){try{var v=localStorage.getItem(k);return v?JSON.parse(v):def;}catch(e){return def;}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){toast("Opslaan lukt niet (geheugen vol?)");}}
 function clone(o){return JSON.parse(JSON.stringify(o));}
@@ -496,9 +496,20 @@ function svgToM(sx,sy){return{mx:(sx/SVG_W*954-20)/10,my:(sy/SVG_H*590-295)/10};
 function mToSvg(mx,my){return{sx:Math.round((20+mx*10)/954*SVG_W*100)/100,sy:Math.round((295+my*10)/590*SVG_H*100)/100};}
 function nearest(list,v){var b=list[0];list.forEach(function(x){if(Math.abs(x-v)<Math.abs(b-v))b=x;});return b;}
 function key(p){return p.mx+"|"+p.my;}
+function slimmeBanen(m){
+  // Dynamische laterale ankers: 3- en 4-spelerlinies passen beide netjes op dezelfde lengtelijn.
+  // Fijnere tussenankers blijven beschikbaar voor asymmetrische opstellingen en kleine verschuivingen.
+  return[-24,-20,-16,-12,-8,-4,0,4,8,12,16,20,24];
+}
 function snapPlek(sx,sy,bezet){
-  var m=svgToM(sx,sy),p={mx:nearest(KOLOMMEN,m.mx),my:nearest(BANEN,m.my)};
-  if(bezet&&bezet[key(p)]){var best=null,bd=Infinity;KOLOMMEN.forEach(function(x){BANEN.forEach(function(y){var q={mx:x,my:y};if(bezet[key(q)])return;var d=Math.pow(x-m.mx,2)+Math.pow(y-m.my,2);if(d<bd){bd=d;best=q;}});});if(best)p=best;}
+  var m=svgToM(sx,sy),x=nearest(KOLOMMEN,m.mx),banen=slimmeBanen(m),y=nearest(banen,m.my),p={mx:x,my:y};
+  if(bezet&&bezet[key(p)]){
+    var best=null,bd=Infinity;
+    // Eerst ruimte zoeken binnen dezelfde linie. Pas daarna naar een andere lengtelijn uitwijken.
+    banen.forEach(function(yy){var q={mx:x,my:yy};if(bezet[key(q)])return;var d=Math.pow((yy-m.my)*.9,2);if(d<bd){bd=d;best=q;}});
+    if(!best||bd>110)KOLOMMEN.forEach(function(xx){banen.forEach(function(yy){var q={mx:xx,my:yy};if(bezet[key(q)])return;var d=Math.pow((xx-m.mx)*1.15,2)+Math.pow(yy-m.my,2);if(d<bd){bd=d;best=q;}});});
+    if(best)p=best;
+  }
   return p;
 }
 // Een speelster boven/onder de middenlijn tussen twee middenspeelsters komt precies tussen hen in
