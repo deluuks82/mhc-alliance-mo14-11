@@ -799,7 +799,7 @@ function duties(m,metTenue){
   if(m.fluiten)h+=duty("whistle","Scheidsrechter",m.fluiten);
   if(m.keeper)h+=duty("glove","Keepen",m.keeper);
   if(m.fruit)h+=duty("fruit","Fruit",m.fruit);
-  if(!th||rij)h+=duty("car","Rijden",rij||"N.N.B");
+  if(!th||rij)h+=duty("car","Rijden",rij||"N.N.B",(m.rijden&&m.rijden.length>=3)?"wide":"");
   if(!th&&m.plaats_verzamelen)h+=duty("pin","Verzamelen bij",m.plaats_verzamelen,"wide");
   if(m.veld)h+=duty("field",m.competitie==="Zaal"?"Veld in zaal":"Veld",m.veld);
   if(metTenue&&m.tenue)h+=duty("shirt","Tenue",m.tenue,"wide");
@@ -856,7 +856,7 @@ function pxDuties(m,metTenue){
   if(m.fluiten)h+=pxDuty("whistle","Scheidsrechter",m.fluiten);
   if(m.keeper)h+=pxDuty("glove","Keepen",m.keeper);
   if(m.fruit)h+=pxDuty("fruit","Fruit",m.fruit);
-  if(!th||rij)h+=pxDuty("car","Rijden",rij||"N.N.B");
+  if(!th||rij)h+=pxDuty("car","Rijden",rij||"N.N.B",(m.rijden&&m.rijden.length>=3)?"wide":"");
   if(!th&&m.plaats_verzamelen)h+=pxDuty("pin","Verzamelen bij",m.plaats_verzamelen,"wide");
   if(m.veld)h+=pxDuty("field",m.competitie==="Zaal"?"Veld in zaal":"Veld",m.veld);
   if(metTenue&&m.tenue)h+=pxDuty("shirt","Tenue",m.tenue,"wide");
@@ -885,7 +885,7 @@ function pxGroupDuties(ms,metTenue){
   var zl=pxFirst(ms,"zaalleiding"),fl=pxFirst(ms,"fluiten"),kp=(function(){var a=ms.map(function(x,i){return x.keeper?("Wedstrijd "+(x.wedstrijd||i+1)+": "+x.keeper):"";}).filter(Boolean),v=ms.map(function(x){return x.keeper||"";}).filter(Boolean);return v.length>1&&v.some(function(x){return x!==v[0];})?a.join(" · "):pxFirst(ms,"keeper");})(),fr=pxFirst(ms,"fruit"),pv=pxFirst(ms,"plaats_verzamelen"),te=pxFirst(ms,"tenue"),af=pxFirst(ms,"afgemeld"),tv=pxFirst(ms,"tijd_verzamelen");
   if(tv)h+=pxDuty("timer","Verzameltijd",tv);
   if(pv)h+=pxDuty("pin","Verzamelen bij",pv);
-  if(!th||rij)h+=pxDuty("car","Rijden",rij||"N.N.B");
+  if(!th||rij)h+=pxDuty("car","Rijden",rij||"N.N.B",(m.rijden&&m.rijden.length>=3)?"wide":"");
   if(zl)h+=pxDuty("team","Zaalleiding",zl);
   if(kp)h+=pxDuty("glove","Keepen",kp);if(fl)h+=pxDuty("whistle","Scheidsrechter",fl);if(fr)h+=pxDuty("fruit","Fruit",fr);
   if(metTenue&&te)h+=pxDuty("shirt","Tenue",te,"wide");
